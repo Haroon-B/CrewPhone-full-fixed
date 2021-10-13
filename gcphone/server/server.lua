@@ -197,6 +197,26 @@ function notifyContactChange(source, identifier)
     end
 end
 
+ESX.RegisterServerCallback('crew-phone:phone-check', function(source, cb)
+    local xPlayer = ESX.GetPlayerFromId(source)
+    if not xPlayer then return; end
+    for k, v in pairs(Config.Phones) do
+        local items = xPlayer.getInventoryItem(v)
+        if items.count > 0 then
+            cb(v)
+            return
+        end
+	end
+    cb(nil)
+end)
+
+ESX.RegisterServerCallback('crew-phone:item-check', function(source, cb, data)
+    local xPlayer = ESX.GetPlayerFromId(source)
+    if not xPlayer then return; end
+    local items = xPlayer.getInventoryItem(data)
+    cb(items.count)
+end)
+
 RegisterServerEvent('gcPhone:addContact')
 AddEventHandler('gcPhone:addContact', function(display, phoneNumber)
     local sourcePlayer = tonumber(source)
