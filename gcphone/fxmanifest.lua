@@ -34,7 +34,7 @@ files {
 }
 
 client_script {
-	'@haroon-core/locale.lua',
+	'@es_extended/locale.lua',
 	'locales/en.lua',
 	"config.lua",
 	"client/animation.lua",
@@ -53,7 +53,7 @@ client_script {
 }
 
 server_script {
-	'@haroon-core/locale.lua',
+	'@es_extended/locale.lua',
 	'@mysql-async/lib/MySQL.lua',
 	'locales/en.lua',
 	"config.lua",
