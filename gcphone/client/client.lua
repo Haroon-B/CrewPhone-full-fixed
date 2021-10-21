@@ -637,7 +637,7 @@ RegisterNUICallback('takePhoto', function(data, cb)
       takePhoto = false
       break
     elseif IsControlJustPressed(1, 176) then -- TAKE.. PIC
-      exports['screenshot-basic']:requestScreenshotUpload("https://discord.com/api/webhooks/892810922433859624/1teV91XLYv-TTvWb17pdIgjqj89EE3a9qSq5rQgHHhNKuVzmFGWVIlKc5SiELjP_Bn8N", data.field, function(data)
+      exports['screenshot-basic']:requestScreenshotUpload("your_webhook-here", data.field, function(data)
         local image = json.decode(data)
         DestroyMobilePhone()
         CellCamActivate(false, false)
